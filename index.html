@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pysiula's Countdown</title>
+
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./app.css"/>
+
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./bower_components/moment/min/moment.min.js"></script>
+    <script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="./app.js"></script>
+</head>
+<body ng-app="countdown">
+<div class="container" ng-controller="main">
+    <h1>
+        <i class="glyphicon glyphicon-hourglass"></i>
+        Pysiula's Countdown
+    </h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Remaining time</th>
+        </tr>
+        <tr ng-repeat="event in events">
+            <td>{{event.name}}</td>
+            <td>{{event.time}}</td>
+        </tr>
+    </table>
+
+    <button class="btn btn-info" ng-click="toggleNewEventDialog()">{{showNewEventButtonLabel}}</button>
+    <div ng-show="showNewEventDialog">
+        <h2>Create new event</h2>
+
+        <div class="form-group">
+            <label>Event name</label>
+            <input class="form-control" ng-model="name" placeholder="Event name">
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Pick a date</label>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-info" ng-click="openCalendar()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </button>
+                </span>
+                <input type="text" class="form-control"
+                       placeholder="Pick a date with calendar or type in format like 14-Septemeber-2017"
+                       ng-model="time"
+                       ng-required="true"
+                       datepicker-options="calendarOptions"
+                       uib-datepicker-popup="dd-MMMM-yyyy"
+                       alt-input-formats="dd-MMMM-yyyy"
+                       is-open="isCalendarOpen"/>
+
+            </div>
+        </div>
+
+        <p>
+            <button class="btn btn-info" ng-click="addEvent()">Create</button>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

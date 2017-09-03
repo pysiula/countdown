@@ -1,0 +1,16 @@
+body {
+    font-family: Tahoma;
+}
+
+h1 {
+    color: #31B0D5;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 45px;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+}
