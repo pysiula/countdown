@@ -56,15 +56,33 @@
                        uib-datepicker-popup="dd-MMMM-yyyy"
                        alt-input-formats="dd-MMMM-yyyy"
                        is-open="isCalendarOpen"/>
-
             </div>
         </div>
-
+        <div class="form-inline">
+            <div class="form-group">
+                <label>Set time</label>
+                <input class="form-control"
+                       ng-model="hour"
+                       placeholder="hour"
+                       type="number"
+                       name="quantity"
+                       min="0" max="23">
+            </div>
+            <div class="form-group">
+                <input class="form-control"
+                       ng-model="minute"
+                       placeholder="minute"
+                       type="number"
+                       name="quantity"
+                       min="0" max="59">
+            </div>
+        </div>
         <p>
             <button class="btn btn-info" ng-click="addEvent()">Create</button>
         </p>
     </div>
 </div>
+
 
 </body>
 </html>
